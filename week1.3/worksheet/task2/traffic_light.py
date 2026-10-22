@@ -5,13 +5,22 @@ Name:
 """
 
 states = { "red":4, "red_amber":3, "green":5, "amber":3 }
+next_state = {"red": "red_amber",
+              "red_amber": "amber",
+              "amber": "red",
+              "green": "amber"
+              }
 
 systime = 0
 maxtime = int(input())  # read an integer number of steps (>0)
-
+t = 0
 state = "red"
-
-print(f"Time {systime:03} State {state}")
+for systime in range(maxtime):
+    print(f"Time {systime:03} State {state}")
+    t+=1
+    if t >= states[state]:
+        t -= states[state]
+        state = next_state[state]
 
 # Simulate the traffic light system up to time=maxtime in 1-second steps
 
