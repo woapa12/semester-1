@@ -14,8 +14,8 @@ class Point:
         """
         Creates a Point, given x & y coordinates.
         """
-        self.x = x
-        self.y = y
+        self.x: int = x
+        self.y: int = y
 
     def distance(self):
         """

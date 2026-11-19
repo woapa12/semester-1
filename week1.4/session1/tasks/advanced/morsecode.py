@@ -31,6 +31,13 @@ def string_to_morse_code(string):
              '.': '.-.-.-', '-': '-....-', '+': '.-.-.',  '"': '.-..-.',
              '?': '..--..', '/': '-..-.'}
 
+    encodedString = ""
+    for i in string.upper():
+        encodedString += mcode.get(i, "#") # Invalid characters are shown by a hash
+
+    return(encodedString)
+
+
 
 # test data
 

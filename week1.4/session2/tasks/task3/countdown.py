@@ -16,8 +16,12 @@ def countdown(n):
 
     # Complete your code here
     # base case
+    print(n)
 
     # recursive case
+    if n > 0:
+        n -= 1
+        countdown(n)
 
 
 # check if correct output is produced

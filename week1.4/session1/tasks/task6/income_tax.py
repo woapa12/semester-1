@@ -34,6 +34,30 @@ def income_tax_calculator(annual_income):
         e.g round(tax, 1) 0.0 if annual_income is not a positive integer.
     """
 
+    tax = 0
+
+    # Don't need to consider personal allowance 
+
+    # Additional Rate
+    additional =  (annual_income - 125140) * 0.45
+    if additional > 0:
+        tax += additional
+
+    # Higher Rate
+    annual_income = min(annual_income, 125140)
+    higher = (annual_income - 50270) * 0.4
+    if higher > 0:
+        tax += higher
+
+    # Basic Rate
+    annual_income = min(annual_income, 50270)
+    basic = (annual_income - 12570) * 0.2
+    if basic > 0:
+        tax += basic
+
+    return round(tax,2)
+    
+
 
 # Check if the following lines produce the correct output
 print(income_tax_calculator(12000))     # 0.0

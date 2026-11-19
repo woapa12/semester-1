@@ -6,4 +6,6 @@ home_sensors = {"Living Room Thermostat": 85, "Front Door Lock": 15, "Kitchen Sm
 # Expected Output: {'Front Door Lock': 15, 'Basement Flood Sensor': 8}
 
 
+low_battery_sensors = [(key, value) for key, value in home_sensors.items() if value < 20]
+print(low_battery_sensors)
 # print the new dictionary with battery less than 20 to verify

@@ -73,3 +73,7 @@ class Circle:
         return f"radius={self.radius}, centre={self.centre}"
 
     # Implement your __contains__() method here
+
+    def __contains__(self, point):
+        distance = point.distance_to(self.centre)
+        return distance <= self.radius

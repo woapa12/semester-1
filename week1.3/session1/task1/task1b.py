@@ -10,3 +10,9 @@ while fruit:
 # Why does this work?
 
 # What features of Python does it rely on?
+
+
+# fruit.pop, when given no arguments, will simply remove the last item
+# this happens repeatedly as it is being looped
+# when the last item is popped, the condition (fruit) will no longer be considered 'True' as it's empty
+# so, the while loop stops

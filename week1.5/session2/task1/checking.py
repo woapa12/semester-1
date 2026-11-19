@@ -14,9 +14,12 @@ class Point:
         """
         Creates a Point, given x & y coordinates.
         """
-        self.x = x
-        self.y = y
-
+        if type(x) == type(y) and type(x) == int:
+            self.x = x
+            self.y = y
+        else:
+            raise TypeError
+        
     def distance(self):
         """
         Returns distance of this Point from the origin.
