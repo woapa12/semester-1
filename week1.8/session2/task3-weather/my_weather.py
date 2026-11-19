@@ -22,16 +22,16 @@ response = httpx.get(url)
 # status code (should be checked)
 print(response.status_code)
 
-# json data
-data = response.json()
+if response.status_code != 200 and response.status_code != 201:
+    print("Request failed")
+else:
+    # json data
+    data = response.json()
 
-# raw data output
-print(data)
+    # extract the temperature data as lists from the JSON dictionary
+    temp_data = data['days']
 
-# extract the temperature data as lists from the JSON dictionary
-temp_data = data['days']
-
-print(temp_data)
+    print(temp_data)
 
 # use pandas to convert data to  dataframe
 
@@ -40,12 +40,14 @@ df = pd.DataFrame(temp_data)
 # using matplotlib plot the 3 data sets: (tempmin,temp,tempmax) as line graphs
 
 df.plot()
-
+plt.title("Temperature Data for Leeds, UK")
 plt.show()
 
 # annotate the graph with axis labels
-
+plt.xlabel("Days")
+plt.ylabel("Temperature (C)")
 # note that temperature is in Farenheit (F)
 # convert to Celcius before plotting 
-
+def convert_to_celsius(f):
+    return (f - 32) * 5/9
 # using the documentation explore other data, eg. rainfall  
